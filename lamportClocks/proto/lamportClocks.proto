@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option go_package = "proto/lamportClocks.proto;lamportClocks"; 
+
+package lamportClocks;
+
+service HelloService {
+    rpc SayHello (HelloRequest) returns (HelloReply) {}
+  }
+  
+  // The request message containing the user's name.
+  message HelloRequest {
+    string name = 1;
+  }
+  
+  // The response message containing the greetings
+  message HelloReply {
+    string message = 1;
+  }
+  
+
+// protoc --go_out=. --go_opt=paths=source_relative \
+//  --go-grpc_out=. --go-grpc_opt=paths=source_relative \
+//  proto/lamportClocks.proto
+
+// go mod init
+// go mod tidy
